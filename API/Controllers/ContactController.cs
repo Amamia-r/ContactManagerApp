@@ -15,7 +15,6 @@ namespace API.Controllers
 
             return contacts;
         }
-
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Contact>> GetContactById(int id)
         {
@@ -24,6 +23,28 @@ namespace API.Controllers
 
             return contact;
         }
+
+        // Async search by contactName with query string
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchContactsAsync([FromQuery] string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return BadRequest("The 'name' parameter is required.");
+            }
+
+            // EF Core async query
+            var contact = await dataContext.Contacts
+                .FirstOrDefaultAsync(c => c.ContactName.ToLower() == name.ToLower());
+
+            if (contact == null)
+            {
+                return NotFound($"No contact found with the name : {name}");
+            }
+
+            return Ok(contact);
+        }
+
 
         [HttpPut("{id:int}")]
         public async Task<ActionResult<Contact>> UpdateContact(int id, Contact updatedContact)
