@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-        <a class="navbar-brand" routerLink="/">Contact Manager</a>
+        <a class="navbar-brand" routerLink="/">KontactUs?</a>
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
@@ -9,24 +9,22 @@
             <li class="nav-item">
                 <a class="nav-link" routerLinkActive="active">List</a>
             </li>
-            <li class="nav-item">
-                <a routerLink="errors" class="nav-link" routerLinkActive="active">Errors</a>
-            </li>
-        </ul>
-        <form #searchForm="ngForm" (ngSubmit)="searchContact(model.contactname)" class="d-flex" role="search"
-            autocomplete="off">
-            <input name="contactname" [(ngModel)]="model.contactname" class="form-control me-2" type="search"
-                placeholder="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
- 
 
-@if (loading){
-    <div class="spinner-border text-primary result" role="status">
-        <span class="visually-hidden">Loading...</span>
+        </ul>
+        <div dropdown class="dropdown">
+            <a dropdownToggle class="dropdown-toggle text-light text-decoration-none">Welcome</a>
+            <div *dropdownMenu class="dropdown-menu">
+                <a class="dropdown-item">Edit Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+        
     </div>
-}
+
+</nav>
+
+
 
 <!-- @if (contact && !errorMessage) {
 <div class="result">
