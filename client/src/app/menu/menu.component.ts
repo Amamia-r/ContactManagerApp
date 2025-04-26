@@ -3,11 +3,12 @@ import { NavComponent } from "../nav/nav.component";
 import { SearchComponent } from "../search/search.component";
 import { ContactsComponent } from "../contacts/contacts.component";
 import { AccountService } from '../_services/account.service';
+import { ContactInfoComponent } from "../contact-info/contact-info.component";
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NavComponent, SearchComponent, ContactsComponent],
+  imports: [NavComponent, SearchComponent, ContactsComponent, ContactInfoComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

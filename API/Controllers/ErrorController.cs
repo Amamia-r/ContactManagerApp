@@ -7,6 +7,15 @@ namespace API.Controllers
 {
     public class ErrorController(DataContext context) : BaseController
     {
+        [HttpGet("auth")]
+        public ActionResult<Contact> GetAuth()
+        {
+            var someone = context.Contacts.Find(-1);
+            if (someone == null) return NotFound();
+
+            return someone;
+        }
+
         [HttpGet("not-found")]
         public ActionResult<Contact> GetNotFound()
         {

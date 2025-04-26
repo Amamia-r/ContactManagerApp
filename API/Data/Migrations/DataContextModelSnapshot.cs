@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace API.Data.Migrations
+namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -49,6 +49,10 @@ namespace API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ContactCompany")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ContactEmail")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -58,6 +62,10 @@ namespace API.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ContactPhone")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ContactTitle")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

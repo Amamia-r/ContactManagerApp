@@ -1,26 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { SearchResult } from '../Models/SharedDataResult';
-import { ContactService } from '../_services/contact.service';
-import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SearchComponent } from "../search/search.component";
+import { SearchResult } from '../Models/SharedDataResult';
+import { HttpClient } from '@angular/common/http';
+import { ContactService } from '../_services/contact.service';
 
 @Component({
-  selector: 'app-contacts',
+  selector: 'app-contact-info',
   standalone: true,
-  imports: [FormsModule, SearchComponent],
-  templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.css'
+  imports: [FormsModule],
+  templateUrl: './contact-info.component.html',
+  styleUrl: './contact-info.component.css'
 })
 
 
-export class ContactsComponent implements OnInit {
-
-
+export class ContactInfoComponent {
+  
   http = inject(HttpClient);
   private contactService = inject(ContactService);
-
-  loggedIn = false;
 
   selectedContact: any = {};
 
@@ -32,17 +28,10 @@ export class ContactsComponent implements OnInit {
   contactEmail: string = '';
   contactPhone: string = '';
   contactAddress: string = '';
+ 
 
-  // constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/contact').subscribe(
-      {
-        next: response => this.contacts = response,
-        error: error => console.log(error),
-        complete: () => console.log('Request has completed')
-      }
-    )
 
     this.contactService.result$.subscribe((res) => {
       this.result = res;
@@ -54,15 +43,15 @@ export class ContactsComponent implements OnInit {
       this.contactAddress = res.contact?.contactAddress || '';
 
     });
+
+    this.contactService.selectedContact$.subscribe(contact => {
+      this.selectedContact = contact;
+    });
+
   }
 
   // Function to select a contact from the list
-  selectContact(contact: any) {
-    this.contactService.selectContact(contact);
-  }
 
-  addContact() {
-    throw new Error('Method not implemented.');
-    }
+
 
 }

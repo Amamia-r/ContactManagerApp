@@ -4,8 +4,6 @@ using API.Data;
 using API.DTOs;
 using API.Interfaces;
 using API.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,6 +34,7 @@ namespace API.Controllers
                 Token = tokenService.CreateToken(user)
             };
         }
+        
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {

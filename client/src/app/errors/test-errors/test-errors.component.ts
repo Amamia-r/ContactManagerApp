@@ -12,10 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class TestErrorsComponent {
+selectContact(_t73: any) {
+throw new Error('Method not implemented.');
+}
   baseUrl = 'https://localhost:5001/api/';
-  
+
   private http = inject(HttpClient);
   private toastr = inject(ToastrService);
+contacts: any;
 
   get400Error() {
     this.http.get(this.baseUrl + 'error/bad-request').subscribe({
@@ -26,7 +30,7 @@ export class TestErrorsComponent {
       }
     });
   }
-  
+
   get404Error() {
     this.http.get(this.baseUrl + 'error/not-found').subscribe({
       next: response => console.log(response),
@@ -36,7 +40,7 @@ export class TestErrorsComponent {
       }
     });
   }
-  
+
   get500Error() {
     this.http.get(this.baseUrl + 'error/server-error').subscribe({
       next: response => console.log(response),
@@ -46,6 +50,14 @@ export class TestErrorsComponent {
       }
     });
   }
+  get400ValidationError() {
+    this.http.get(this.baseUrl + 'account/register').subscribe({
+      next: response => console.log(response),
+      error: error => {
+        console.log(error);
+        this.toastr.error(error.error?.message || 'Validation Error occurred', '400 Error');
+      }
+    });
+  }
   
-
 }

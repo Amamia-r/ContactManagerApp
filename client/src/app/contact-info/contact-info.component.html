@@ -1,0 +1,78 @@
+<div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary overflow-auto"
+  style="width: 600px; height: 100vh;">
+
+  <!-- Contact Info Form -->
+
+  <div class="p-4 ">
+    <div class="text-center">
+      <img src="https://randomuser.me/api/portraits/women/64.jpg" class="rounded-circle" alt="" style="width: 150px;">
+
+      <h1 class="mt-2 mb-0">
+        <input type="text" class="form-control bg-body-tertiary"
+          style="text-align: center; border: none; outline: none; font-size: 28px; font-weight:500;" id="firstName"
+          placeholder="Contact's name" [(ngModel)]="contactName" [(ngModel)]="selectedContact.contactName"
+          name="firstName" disabled>
+      </h1>
+
+      <p class="text-muted d-flex">
+        <input type="text" class="form-control bg-body-tertiary"
+          style="text-align: center; border: none; outline: none; font-size: 16px;" id="titleCompany"
+          placeholder="Title" [(ngModel)]="contactTitle" [(ngModel)]="selectedContact.contactTitle" name="firstName"
+          style=" border: none; text-align: right;" disabled>
+        <a class="mt-2">|</a>
+        <input type="text" class="form-control bg-body-tertiary"
+          style="text-align: center; border: none; outline: none; font-size: 16px;" id="titleCompany"
+          placeholder="Company" [(ngModel)]="contactCompany" [(ngModel)]="selectedContact.contactCompany"
+          name="firstName" style="border: none;" disabled>
+      </p>
+
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-outline-primary">Call</button>
+        <button class="btn btn-outline-secondary">Text</button>
+        <button class="btn btn-outline-success">Email</button>
+      </div>
+    </div>
+    <hr>
+    <div>
+
+      <div class="card p-4">
+        <h5>Contact Info</h5>
+        <form>
+          <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" placeholder="Contact name" [(ngModel)]="contactName"
+              [(ngModel)]="selectedContact.contactName" name="firstName">
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Role" [(ngModel)]="contactTitle"
+              [(ngModel)]="selectedContact.contactTitle" name="contactTitle">
+          </div>
+          <div class="mb-3">
+            <label for="company" class="form-label">Company</label>
+            <input type="text" class="form-control" id="company" placeholder="Company name" [(ngModel)]="contactCompany"
+              [(ngModel)]="selectedContact.contactCompany" name="contactCompany">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"
+              [(ngModel)]="contactAddress" [(ngModel)]="selectedContact.contactAddress" name="contactAddress">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="Contact number" required=""
+              [(ngModel)]="contactPhone" [(ngModel)]="selectedContact.contactPhone" name="contactPhone">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="***@example.com" [(ngModel)]="contactEmail"
+              [(ngModel)]="selectedContact.contactEmail" name="contactEmail">
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+
+</div>

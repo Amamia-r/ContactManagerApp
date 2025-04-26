@@ -1,4 +1,67 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary vh-100" data-bs-theme="dark">
+
+    <a routerLink="/" class="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip"
+        data-bs-placement="right" data-bs-original-title="Icon-only">
+        <svg class="bi pe-none" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column text-center mb-auto">
+        <li class="nav-item">
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip"
+                data-bs-placement="right" aria-label="Home" data-bs-original-title="Home" routerLinkActive="active">
+                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Home">
+                    <use xlink:href="#home"></use>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                aria-label="Orders" data-bs-original-title="Orders" routerLinkActive="active">
+                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders">
+                    <use xlink:href="#table"></use>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                aria-label="Products" data-bs-original-title="Products" routerLinkActive="active">
+                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Products">
+                    <use xlink:href="#grid"></use>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                aria-label="Customers" data-bs-original-title="Customers" routerLinkActive="active">
+                <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers">
+                    <use xlink:href="#people-circle"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+    <div dropdown class="dropdown border-top dropup">
+        <a data-bs-toggle="dropdown" dropdownToggle 
+            class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
+            aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+        </a>
+        <div *dropdownMenu class="dropdown-menu">
+            <a class="dropdown-item">Edit Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
         <a class="navbar-brand" routerLink="/">KontactUs?</a>
 
@@ -19,14 +82,14 @@
                 <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
         </div>
-        
+
     </div>
 
-</nav>
+</nav> -->
 
 
 
-<!-- @if (contact && !errorMessage) {
+    <!-- @if (contact && !errorMessage) {
 <div class="result">
     <h3>Contact trouvé :</h3>
     <p>Nom : {{ contact.contactName }}</p>

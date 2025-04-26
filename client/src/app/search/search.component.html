@@ -1,19 +1,24 @@
-<div class="px-4 py-5 my-5 text-center">
+<!-- <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="https://github.com/twbs.png" alt="" width="72" height="72">
     <h1 class="display-5 fw-bold text-body-emphasis">KontactUs?</h1>
     <div class="col-lg-6 mx-auto">
 
 
-            <form #searchForm="ngForm" (ngSubmit)="searchContact(model.contactname)" class="d-grid gap-2 d-sm-flex justify-content-sm-center" role="search"
-                autocomplete="off">
+        <form #searchForm="ngForm" (ngSubmit)="searchContact(model.contactname)"
+            class="d-grid gap-2 d-sm-flex justify-content-sm-center" role="search" autocomplete="off">
 
-                <input name="contactname" [(ngModel)]="model.contactname" type="email" class="form-control"
+            <input name="contactname" [(ngModel)]="model.contactname" type="email" class="form-control"
                     id="floatingInput" placeholder="Type contact name here..." type="search">
-                <button type="button" type="submit" class="btn btn-outline-primary btn-lg px-4">Search</button>
+            <button type="button" type="submit" class="btn btn-outline-primary btn-lg px-4">Search</button>
 
-            </form>
+        </form>
 
 
     </div>
-</div>
+</div> -->
 
+<form #searchForm="ngForm" (ngSubmit)="searchContact(model.contactname)"
+    class="d-grid gap-2 d-sm-flex justify-content-sm-center" role="search" autocomplete="off">
+    <input name="contactname" [(ngModel)]="model.contactname" type="email" class="form-control" id="floatingInput"
+        type="text" class="form-control mb-3" placeholder="Search contacts">
+</form>
